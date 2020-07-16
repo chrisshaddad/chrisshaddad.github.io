@@ -12,7 +12,7 @@
         <form>
             <div class="form-group">
               <label for="telnumber">Full number with 961</label>
-              <input type="tel" class="form-control" id="telnumber" aria-describedby="telHelp" placeholder="9617623...">
+              <input type="tel" class="form-control" id="telnumber" aria-describedby="telHelp" placeholder="9617623..." value="961">
               <small id="telHelp" class="form-text text-muted">Click the button below open below to open the chat</small>
             </div>
             <button id="formSubmit" type="submit" class="btn btn-primary">Go to chat</button>
@@ -24,7 +24,7 @@
               event.preventDefault();
               var textfield = document.getElementById("telnumber")
               var textfieldValue = textfield.value;
-              textfield.value = ""
+              textfield.value = "961"
               window.open( "https://wa.me/" + textfieldValue, "_blank"); 
           });
           
