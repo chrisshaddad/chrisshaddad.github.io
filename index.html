@@ -21,7 +21,16 @@
             <div class="form-group">
               <label for="telnumber">Full number with 961</label>
               <input type="tel" class="form-control" id="telnumber" aria-describedby="telHelp" placeholder="9617623..." value="961">
-              <small id="telHelp" class="form-text text-muted">Click the button below open below to open the chat</small>
+            </div>
+           <div class="form-group">
+              <label for="chatText">Text to include in chat</label>
+              <textarea  class="form-control" id="chatText" aria-describedby="chatTextHelp" placeholder="Text in chat...." value=""></textarea>
+            </div>
+            <div class="form-check" style="margin-bottom: 1rem;">
+              <input class="form-check-input" type="checkbox" value="" id="clearTextCheckbox">
+              <label class="form-check-label text-muted" for="clearTextCheckbox">
+                Clear filled text after opening chat
+              </label>
             </div>
             <button id="formSubmit" type="submit" class="btn btn-primary">Go to chat</button>
           </form>
@@ -30,10 +39,24 @@
       <script>
           var button = document.getElementById("formSubmit").addEventListener("click", function(event){
               event.preventDefault();
-              var textfield = document.getElementById("telnumber")
-              var textfieldValue = textfield.value;
-              textfield.value = "961"
-              window.open( "https://wa.me/" + textfieldValue, "_blank"); 
+              var telnumber = document.getElementById("telnumber")
+              var telnumberValue = telnumber.value;
+              telnumber.value = "961"
+
+              var urlValue = "https://wa.me/" + telnumberValue
+              
+              var chatText = document.getElementById("chatText")
+              var chatTextValue = chatText.value;
+              if(chatTextValue){
+                urlValue += "?text=" + chatTextValue
+
+                if(document.getElementById("clearTextCheckbox").checked){
+                  chatText.value = ""
+                }
+              }
+              
+              window.open(urlValue, "_blank"); 
+
           });
           
       </script>
