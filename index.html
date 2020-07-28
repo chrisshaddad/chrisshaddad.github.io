@@ -48,7 +48,7 @@
               var chatText = document.getElementById("chatText")
               var chatTextValue = chatText.value;
               if(chatTextValue){
-                urlValue += "?text=" + chatTextValue
+                urlValue += "?text=" + encodeURI(chatTextValue)
 
                 if(document.getElementById("clearTextCheckbox").checked){
                   chatText.value = ""
